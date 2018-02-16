@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>
+			Neh's Playlist
+		</title>
+		<script>
+			var songs = [
+				{
+					"Title: ": "Rep the Set",
+					"Artist: ": "The Underachievers",
+					"Genre: ": "Hip-Hop/Rap"
+				},
+				{
+					"Title: ": "Stir Fry",
+					"Artist: ": "Migos",
+					"Genre: ": "Hip-Hop/Rap"
+				},
+				{
+					"Title: ": "Peepin out the Blinds",
+					"Artist: ": "Gucci Mane",
+					"Genre: ": "Hip-Hop/Rap"
+				},
+				{
+					"Title: ": "The Middle",
+					"Artist: ": "Zedd",
+					"Genre: ": "EDM"
+				},
+				{
+					"Title: ": "No Wave",
+					"Artist: ": "Jay IDK",
+					"Genre: ": "Hip-Hop/Rap"
+				},
+			];
+		</script>
+
+	<body>
+		<h1> Neh's Playlist </h1>
+		<table id="music" border = 1 cellpadding="5"></table><br><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Genre</th>
+				</tr>
+			</thead>
+
+			<tbody id="newmusic">
+
+			</tbody>
+		</table>
+
+		<script>
+			var text=""
+			var newtext=""
+
+			for (var x in songs) {
+				if (songs.hasOwnProperty(x)) {
+					var obj = songs[x];
+					for (var y in obj) {
+						if (obj.hasOwnProperty(y)) {
+							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
+
+						}
+					}
+					newtext += "<tr><td>" + obj['Title: '] + "</td><td>" + obj['Artist: '] + "</td><td>" + obj['Genre: '] + "</td></tr>";
+				}
+			}
+			document.getElementById("music").innerHTML = text;
+			document.getElementById("newmusic").innerHTML = newtext;
+		</script>
+	</body>
+</html>
