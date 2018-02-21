@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<title>
+			Neh's Playlist
+		</title>
+		<script>
+			var songs = [
+				{
+					"Title: ": "Rep the Set",
+					"Artist: ": "The Underachievers",
+					"Genre: ": "Hip-Hop/Rap",
+					"Time: ": "2:24"
+				},
+				{
+					"Title: ": "Stir Fry",
+					"Artist: ": "Migos",
+					"Genre: ": "Hip-Hop/Rap",
+					"Time: ": "3:10"
+				},
+				{
+					"Title: ": "Peepin out the Blinds",
+					"Artist: ": "Gucci Mane",
+					"Genre: ": "Hip-Hop/Rap",
+					"Time: ": "3:04"
+				},
+				{
+					"Title: ": "The Middle",
+					"Artist: ": "Zedd",
+					"Genre: ": "EDM",
+					"Time: ": "3:04"
+				},
+				{
+					"Title: ": "No Wave",
+					"Artist: ": "Jay IDK",
+					"Genre: ": "Hip-Hop/Rap",
+					"Time: ": "3:08"
+				},
+			];
+
+/* https://stackoverflow.com/questions/48871452/adding-times-from-a-song-list */
+			function addDurations(data) {
+  const total = songs
+    .map(el => el.Duration.split(':'))
+    .reduce((p, c) => {
+      p.minutes += Number(c[0]);
+      p.seconds += Number(c[1]);
+      return p;
+    }, { minutes: 0, seconds: 0 });
+
+  const whole = Math.floor(total.seconds / 60);
+  total.minutes += whole;
+  total.seconds = total.seconds % 60;
+  return total;
+}
+
+console.log(addDurations(songs)) 
+console.log(songs.keys(data.shareInfo[i]).length)
+
+		</script>
+
+	<body>
+		<h1> Neh's Playlist </h1>
+		<table id="music" border = 1 cellpadding="5"></table><br><br>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Genre</th>
+					<th>Time</th>
+				</tr>
+
+			</thead>
+
+			<tbody id="newmusic">
+
+			</tbody>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th> # of songs </th>
+					<th> # of artists </th>
+					<th> total time </th>
+				</tr>
+				<tr>
+					<td> 5 </td>
+					<td> 5 </td>
+					<td> 14:50 </td>
+				</tr>
+
+				<tbody id="numsong">
+
+				</tbody>
+
+			</thead>
+		</table>
+
+		<script>
+
+			var text=""
+			var newtext=""
+			var tottext=""
+
+			for (var x in songs) {
+				if (songs.hasOwnProperty(x)) {
+					var obj = songs[x];
+					for (var y in obj) {
+						if (obj.hasOwnProperty(y)) {
+							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
+
+						}
+					}
+					newtext += "<tr><td>" + obj['Title: '] + "</td><td>" + obj['Artist: '] + "</td><td>" + obj['Genre: '] + "</td><td>" + obj['Time: '] + "</td></tr>";
+					tottext += "<tr><td>" + obj['total time'] + "</td></tr>"
+
+				}
+			}
+
+
+			document.getElementById("music").innerHTML = text;
+			document.getElementById("newmusic").innerHTML = newtext;
+			document.getElementById("numsong").innerHTML = numsong;
+		</script>
+	</body>
+</html>
